@@ -1,0 +1,8 @@
+node_modules
+yarn-error.log
+build
+laser_weapon_mod_ref
+train_mod_ref
+.DS_Store
+build
+!build/*.zip

@@ -1,0 +1,11 @@
+{
+  "name": "mega-nuke",
+  "version": "1.0.0",
+  "title": "mega-nuke",
+  "author": "cdaringe",
+  "contact": "github.com:cdaringe/mega-nuke.git",
+  "homepage": "github.com:cdaringe/mega-nuke.git",
+  "factorio_version": "0.17",
+  "dependencies": ["base >= 0.17"],
+  "description": "Add the missing _real_ nuke functionality into factorio"
+}

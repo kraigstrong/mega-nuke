@@ -1,0 +1,21 @@
+{
+  "name": "mega-nuke",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "chokidar-cli": "^1.2.0",
+    "nodemon": "^1.14.12",
+    "npm-run-all": "^4.1.2"
+  },
+  "scripts": {
+    "build": "run-s bundle",
+    "bundle": "export VERSION=$(cat info.json | jq -r .version) && cp -r *.lua info.json *.png build/mega-nuke_$VERSION && cd build && zip -r mega-nuke_$VERSION.zip mega-nuke_$VERSION",
+    "copy": "export VERSION=$(cat info.json | jq -r .version) && rsync -r --exclude node_modules $PWD/ ~/.factorio/mods/mega-nuke_$VERSION/",
+    "deploy": "rm -rf ~/.factorio/mods/mega-nuke* && export VERSION=$(cat info.json | jq -r .version) && cp build/mega-nuke_$VERSION.zip ~/.factorio/mods/",
+    "prebuild": "rm -rf build && export VERSION=$(cat info.json | jq -r .version) && mkdir -p build/mega-nuke_$VERSION",
+    "test": "lua test/util.test.lua",
+    "watch": "chokidar -i node_modules -i .git '**/*.lua' '**/*.json' -c 'npm run copy'"
+  },
+  "dependencies": {}
+}
